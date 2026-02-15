@@ -1,13 +1,217 @@
-<h3>Aide à la création de contenu</h3>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Site Futuriste</title>
 
-<p>Vous avez besoin d'aide pour créer du contenu ? Voici quelques conseils pour vous aider à démarrer :</p>
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-<ul>
-  <li><strong>Définissez votre audience :</strong> Identifiez qui est votre public cible et adaptez votre contenu en conséquence.</li>
-  <li><strong>Faites des recherches :</strong> Rassemblez des informations pertinentes pour enrichir votre contenu et le rendre plus crédible.</li>
-  <li><strong>Organisez vos idées :</strong> Créez un plan ou une structure pour votre contenu afin de le rendre plus clair et cohérent.</li>
-  <li><strong>Utilisez un langage simple :</strong> Évitez les termes techniques ou complexes, sauf si votre audience les comprend.</li>
-  <li><strong>Incluez des visuels :</strong> Les images, vidéos ou infographies peuvent rendre votre contenu plus attrayant et facile à comprendre.</li>
-  <li><strong>Relisez et éditez :</strong> Prenez le temps de revoir votre travail pour corriger les erreurs et améliorer la fluidité du texte.</li>
-    <li><strong>Demandez des retours :</strong> Partagez votre contenu avec d'autres personnes pour obtenir des commentaires et des suggestions d'amélioration.</li>
-</ul> si vous avez besoin d'aide supplémentaire, n'hésitez pas à consulter des ressources en ligne ou à demander l'avis de professionnels du domaine. Bonne création !
+/* BACKGROUND */
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ANIMATED BACKGROUND GRID */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, transparent 24%, rgba(0,255,255,0.1) 25%, transparent 26%),
+              linear-gradient(90deg, transparent 24%, rgba(0,255,255,0.1) 25%, transparent 26%);
+  background-size: 50px 50px;
+  z-index: -1;
+  animation: move 10s linear infinite;
+}
+@keyframes move {
+  0% {background-position: 0 0;}
+  100% {background-position: 50px 50px;}
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav a {
+  color: cyan;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: white;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 10px cyan;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #aaa;
+}
+
+/* NEON BUTTON */
+.btn-neon {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: 2px solid cyan;
+  background: transparent;
+  color: cyan;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 10px cyan, inset 0 0 10px cyan;
+  transition: 0.3s;
+}
+.btn-neon:hover {
+  background: cyan;
+  color: black;
+  box-shadow: 0 0 30px cyan;
+}
+
+/* GRADIENT BUTTON */
+.btn-gradient {
+  margin-top: 15px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+section h2 {
+  font-size: 2rem;
+  color: cyan;
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid cyan;
+  box-shadow: 0 0 10px cyan;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: black;
+  color: #555;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  nav {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div>🤖 Mon IA Site</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>⚡ Site Futuriste Hacker</h1>
+  <p>Bienvenue dans le futur du web.</p>
+  <button class="btn-neon">Activer le système</button>
+  <button class="btn-gradient">Interface IA</button>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>🧠 About Me</h2>
+  <p>Je crée des sites futuristes, des IA et des projets tech.</p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>🚀 Projects</h2>
+  <div class="cards">
+    <div class="card">Projet 1 - IA futuriste</div>
+    <div class="card">Projet 2 - Site Hacker</div>
+    <div class="card">Projet 3 - App Mobile</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>📱 Contact</h2>
+  <p>Email: starnite.ytb@gmail.com</p>
+  <button class="btn-neon">Envoyer un message</button>
+</section>
+
+<footer>
+  © 2026 - Futur Web System
+</footer>
+
+</body>
+</html>
